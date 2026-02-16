@@ -36,7 +36,7 @@ import { PublicKey, Connection } from '@solana/web3.js';
 import { useAnchorWallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletDialogProvider, WalletMultiButton } from '@solana/wallet-adapter-material-ui';
 import { CollectionBoardingInfo, useAdmin, useListingQuery, useListingRequest } from 'grape-art-listing-request';
-import { AnchorProvider } from '@project-serum/anchor';
+import { AnchorProvider } from '@coral-xyz/anchor';
 import { BOARDING_PROGRAM_CONFIG } from '../utils/grapeTools/constants';
 import { ApprovedTable } from './ApprovedTable';
 import { useEffect, useState } from 'react';

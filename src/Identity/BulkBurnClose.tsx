@@ -4,7 +4,7 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Signer, Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, createBurnInstruction, createCloseAccountInstruction, getAssociatedTokenAddress } from "@solana/spl-token-v2";
 
-//import { * as anchor } from '@project-serum/anchor';
+//import { * as anchor } from '@coral-xyz/anchor';
 
 //import { } from '@metaplex-foundation/mpl-token-metadata';
 //import { } from '@metaplex-foundation/mpl-token';

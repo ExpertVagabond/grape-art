@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Connection, PublicKey } from '@solana/web3.js';
-import { Program, Provider, BN } from '@project-serum/anchor';
+import { Program, Provider, BN } from '@coral-xyz/anchor';
 import Squads, { getTxPDA, DEFAULT_MULTISIG_PROGRAM_ID } from '@sqds/sdk';
 import axios from 'axios';
 import { WalletContextState } from '@solana/wallet-adapter-react';

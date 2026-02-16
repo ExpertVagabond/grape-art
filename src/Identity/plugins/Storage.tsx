@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { Global } from '@emotion/react';
 import { Link, useParams, useSearchParams } from "react-router-dom";
 // @ts-ignore
-import { BN } from '@project-serum/anchor';
+import { BN } from '@coral-xyz/anchor';
 import { PublicKey, Connection, Commitment } from '@solana/web3.js';
 import ModalSwapView from "./ModalSwap";
 import {ENV, TokenInfo, TokenListProvider} from '@solana/spl-token-registry';
@@ -80,7 +80,7 @@ import {
     RPC_CONNECTION } from '../../utils/grapeTools/constants';
 import { load } from "../../browser";
 import { ParaglidingSharp } from "@mui/icons-material";
-import { stateDiscriminator } from "@project-serum/anchor/dist/cjs/coder";
+import { stateDiscriminator } from "@coral-xyz/anchor/dist/cjs/coder";
 import { UniqueOperationNamesRule } from "graphql";
 
 const Input = styled('input')({

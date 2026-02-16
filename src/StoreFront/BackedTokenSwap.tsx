@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as anchor from "@project-serum/anchor";
-import { Provider, AnchorProvider } from "@project-serum/anchor";
+import * as anchor from "@coral-xyz/anchor";
+import { Provider, AnchorProvider } from "@coral-xyz/anchor";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { BN } from "bn.js";
 
@@ -11,7 +11,7 @@ import {
     useTokenMetadata,
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { PublicKey, Connection } from '@solana/web3.js';
-import { Wallet as NodeWallet } from "@project-serum/anchor";
+import { Wallet as NodeWallet } from "@coral-xyz/anchor";
 import {useSnackbar} from "notistack";
 
 import {

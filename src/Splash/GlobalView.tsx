@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Connection, PublicKey, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 import bs58 from 'bs58';
 //import spok from 'spok';
 
@@ -73,7 +73,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CircularProgress from '@mui/material/CircularProgress';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { ConstructionOutlined, SentimentSatisfiedSharp } from "@mui/icons-material";
-import { accountSize } from "@project-serum/anchor/dist/cjs/coder";
+import { accountSize } from "@coral-xyz/anchor/dist/cjs/coder";
 
 import { decodeMetadata } from '../utils/grapeTools/utils';
 

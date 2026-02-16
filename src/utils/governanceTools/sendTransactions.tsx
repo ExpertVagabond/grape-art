@@ -10,7 +10,7 @@ import {
   TransactionSignature,
   Keypair,
 } from '@solana/web3.js';
-//import  SignerWalletAdapter  from "@project-serum/sol-wallet-adapter";
+//import  SignerWalletAdapter  from "@coral-xyz/anchor";
 import { AnchorWallet } from "@solana/wallet-adapter-react";
 
 // TODO: sendTransactions() was imported from Oyster as is and needs to be reviewed and updated

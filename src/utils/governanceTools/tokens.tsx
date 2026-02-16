@@ -24,7 +24,7 @@ import { getParsedNftAccountsByOwner } from '@nfteyez/sol-rayz'
 import axios from 'axios'
 import { notify } from './notifications'
 import { NFTWithMint } from './uiTypes/nfts'
-import { BN } from '@project-serum/anchor'
+import { BN } from '@coral-xyz/anchor'
 import { abbreviateAddress } from './formatting'
 */
 export type TokenAccount = AccountInfo

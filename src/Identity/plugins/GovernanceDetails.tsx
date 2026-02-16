@@ -3,7 +3,7 @@ import { WalletError, WalletNotConnectedError } from '@solana/wallet-adapter-bas
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Signer, Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js';
 //import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
-import * as anchor from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
 
 import { RPC_CONNECTION } from '../../utils/grapeTools/constants';
 

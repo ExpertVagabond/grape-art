@@ -1,7 +1,7 @@
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { Box, Collapse, IconButton, TableCell, TableRow } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { Wallet } from '@project-serum/common';
+import { Wallet } from '@coral-xyz/anchor';
 import { right } from 'fp-ts/lib/EitherT';
 import React, { useState } from 'react';
 import { TxGrid } from './TxGrid';

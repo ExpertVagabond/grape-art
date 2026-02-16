@@ -20,7 +20,7 @@ import {
     AUCTION_HOUSE_ADDRESS,
   } from '../utils/auctionHouse/helpers/constants';
 
-import { web3 } from '@project-serum/anchor';
+import { web3 } from '@coral-xyz/anchor';
 
 import {
     Typography,

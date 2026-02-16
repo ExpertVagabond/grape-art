@@ -1,5 +1,5 @@
 import React from "react";
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 import { Connection, PublicKey, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { 

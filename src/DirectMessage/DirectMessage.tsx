@@ -3,8 +3,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { styled } from '@mui/material/styles';
 import { useSnackbar } from 'notistack';
 
-import * as anchor from '@project-serum/anchor';
-import { Idl, Provider } from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
+import { Idl, Provider } from '@coral-xyz/anchor';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 

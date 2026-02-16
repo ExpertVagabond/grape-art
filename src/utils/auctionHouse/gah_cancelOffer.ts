@@ -12,7 +12,7 @@ import {
   TransactionInstruction,
   SYSVAR_INSTRUCTIONS_PUBKEY,
 } from '@solana/web3.js'
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 import { RPC_ENDPOINT } from '../../utils/grapeTools/constants';
 import {InstructionsAndSignersSet} from "./helpers/types";
 

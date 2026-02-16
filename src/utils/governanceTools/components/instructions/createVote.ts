@@ -20,7 +20,7 @@ import { RPC_CONNECTION } from '../../../../utils/grapeTools/constants';
     GOVERNANCE_CHAT_PROGRAM_ID,
   } from "@solana/spl-governance";
   // plugin stuff
-  import { Wallet } from "@project-serum/anchor";
+  import { Wallet } from "@coral-xyz/anchor";
   import { VsrClient } from "@blockworks-foundation/voter-stake-registry-client/index";
   import {
     getRegistrarPDA,

@@ -3,7 +3,7 @@ import { PublicKey, Connection } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 
-import { Provider, AnchorProvider } from "@project-serum/anchor";
+import { Provider, AnchorProvider } from "@coral-xyz/anchor";
 
 export async function getBackedTokenMetadata(tokenMint:string, wallet: any) {
     //console.log("checking: "+tokenMint);

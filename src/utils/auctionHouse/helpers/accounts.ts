@@ -22,11 +22,11 @@ import {
   B,
   A,
 } from './constants';
-import * as anchor from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
 //import { Wallet } from '@solana/wallet-adapter-react';
 import fs from 'fs';
 //import { createConfigAccount } from './instructions';
-import { web3 } from '@project-serum/anchor';
+import { web3 } from '@coral-xyz/anchor';
 import log from 'loglevel';
 import { AccountLayout } from '@solana/spl-token';
 import { AuctionHouseProgram } from '@metaplex-foundation/mpl-auction-house';

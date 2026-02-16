@@ -10,7 +10,7 @@ import {
     TOKEN_METADATA_PROGRAM_ID,
     METAPLEX_PROGRAM_ID,
   } from './constants';
-  import * as anchor from '@project-serum/anchor';
+  import * as anchor from '@coral-xyz/anchor';
   import {createTransferInstruction} from "@solana/spl-token-v2";
   
   export async function createAssociatedTokenAccount(wallet: PublicKey, mint: PublicKey, associatedTokenAddress: PublicKey) {

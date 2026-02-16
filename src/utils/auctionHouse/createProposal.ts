@@ -1,5 +1,5 @@
 import { PublicKey, SystemProgram, TransactionInstruction, Transaction, Keypair, Connection} from '@solana/web3.js'
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 import {InstructionsAndSignersSet} from "./helpers/types";
 import { 
   getRealms, 

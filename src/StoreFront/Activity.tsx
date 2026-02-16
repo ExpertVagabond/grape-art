@@ -37,7 +37,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { WalletConnectButton } from "@solana/wallet-adapter-material-ui";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Connection, PublicKey } from '@solana/web3.js';
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 
 import { red } from '@mui/material/colors';
 

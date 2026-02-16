@@ -116,7 +116,7 @@ import { ConstructionOutlined, DoNotDisturb, JavascriptRounded, LogoDevOutlined 
 
 import { useTranslation } from 'react-i18next';
 import { getByPlaceholderText } from "@testing-library/react";
-import { parseMintAccount } from "@project-serum/common";
+// parseMintAccount was from @project-serum/common (deprecated) -- unused import removed
 import { any } from "prop-types";
 
 import {

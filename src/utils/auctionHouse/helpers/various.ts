@@ -2,7 +2,7 @@ import { LAMPORTS_PER_SOL, AccountInfo } from '@solana/web3.js';
 import fs from 'fs';
 import weighted from 'weighted';
 import path from 'path';
-import { Program, web3 } from '@project-serum/anchor';
+import { Program, web3 } from '@coral-xyz/anchor';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token-v2';
 
 //const { readFile } = fs.promises;

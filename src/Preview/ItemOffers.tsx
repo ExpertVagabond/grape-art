@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //import { sendSignedTransaction } from '../utils/governanceTools/sendTransactions'
 
 import { Connection, LAMPORTS_PER_SOL, PublicKey, Transaction, TransactionInstruction } from '@solana/web3.js';
-import * as anchor from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
 import { getAssociatedTokenAddress, getOrCreateAssociatedTokenAccount } from '@solana/spl-token-v2';
 // @ts-ignore
 //import fetch from 'node-fetch';
@@ -139,7 +139,7 @@ import { gah_cancelListing } from '../utils/auctionHouse/gah_cancelListing';
 
 import "../App.less";
 
-import { BN, web3 } from '@project-serum/anchor';
+import { BN, web3 } from '@coral-xyz/anchor';
 import { getPriceWithMantissa } from '../utils/auctionHouse/helpers/various';
 
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';

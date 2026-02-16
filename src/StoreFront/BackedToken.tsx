@@ -24,7 +24,7 @@ import {
     getTokenPrice,
     getCoinGeckoPrice } from '../utils/grapeTools/helpers';
 
-import { Provider, AnchorProvider } from "@project-serum/anchor";
+import { Provider, AnchorProvider } from "@coral-xyz/anchor";
 
 import StrataSwap from "./StrataSwap";
 

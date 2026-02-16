@@ -8,8 +8,11 @@ import {
   Transaction,
   TransactionSignature,
 } from '@solana/web3.js'
-import Wallet from '@project-serum/sol-wallet-adapter'
-import { sleep } from '@project-serum/common'
+import { Wallet } from '@coral-xyz/anchor'
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 class TransactionError extends Error {
   public txid: string
