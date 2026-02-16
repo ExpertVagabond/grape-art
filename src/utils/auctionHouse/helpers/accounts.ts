@@ -604,57 +604,42 @@ export async function getProgramAccounts(
   programId: string,
   configOrCommitment?: any,
 ): Promise<AccountAndPubkey[]> {
-  const extra: any = {};
+  const config: any = { encoding: 'base64' };
   let commitment;
-  //let encoding;
 
   if (configOrCommitment) {
     if (typeof configOrCommitment === 'string') {
       commitment = configOrCommitment;
     } else {
       commitment = configOrCommitment.commitment;
-      //encoding = configOrCommitment.encoding;
 
       if (configOrCommitment.dataSlice) {
-        extra.dataSlice = configOrCommitment.dataSlice;
+        config.dataSlice = configOrCommitment.dataSlice;
       }
 
       if (configOrCommitment.filters) {
-        extra.filters = configOrCommitment.filters;
+        config.filters = configOrCommitment.filters;
       }
     }
   }
 
-  const args = connection._buildArgs([programId], commitment, 'base64', extra);
-  const unsafeRes = await (connection as any)._rpcRequest(
-    'getProgramAccounts',
-    args,
+  if (commitment) {
+    config.commitment = commitment;
+  }
+
+  const accounts = await connection.getProgramAccounts(
+    new anchor.web3.PublicKey(programId),
+    config,
   );
 
-  return unsafeResAccounts(unsafeRes.result);
-}
-
-//function unsafeAccount(account: anchor.web3.AccountInfo<string[]>) {
-function unsafeAccount(account: anchor.web3.AccountInfo<[string, string]>) {
-    return {
-    // TODO: possible delay parsing could be added here
-    data: Buffer.from(account.data[0], 'base64'),
-    executable: account.executable,
-    lamports: account.lamports,
-    // TODO: maybe we can do it in lazy way? or just use string
-    owner: account.owner,
-  } as anchor.web3.AccountInfo<Buffer>;
-}
-
-function unsafeResAccounts(
-  data: Array<{
-    //account: anchor.web3.AccountInfo<string[]>;
-    account: anchor.web3.AccountInfo<[string, string]>;
-    pubkey: string;
-  }>,
-) {
-  return data.map(item => ({
-    account: unsafeAccount(item.account),
-    pubkey: item.pubkey,
+  return accounts.map(({ pubkey, account }) => ({
+    pubkey: pubkey.toBase58(),
+    account: {
+      data: account.data as Buffer,
+      executable: account.executable,
+      lamports: account.lamports,
+      owner: account.owner,
+    } as anchor.web3.AccountInfo<Buffer>,
   }));
 }
+

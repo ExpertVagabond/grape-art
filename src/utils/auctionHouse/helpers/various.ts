@@ -184,17 +184,11 @@ export const getMultipleAccounts = async (
     .map(
       a =>
         //@ts-ignore
-        a.array.map(acc => {
+        a.array.map((acc: AccountInfo<Buffer> | null) => {
           if (!acc) {
             return undefined;
           }
-
-          const { data, ...rest } = acc;
-          const obj = {
-            ...rest,
-            data: Buffer.from(data[0], 'base64'),
-          } as AccountInfo<Buffer>;
-          return obj;
+          return acc as AccountInfo<Buffer>;
         }) as AccountInfo<Buffer>[],
     )
     //@ts-ignore
@@ -272,17 +266,15 @@ const getMultipleAccountsCore = async (
   keys: string[],
   commitment: string,
 ) => {
-  const args = connection._buildArgs([keys], commitment, 'base64');
+  const { PublicKey } = await import('@solana/web3.js');
+  const publicKeys = keys.map((k: string) => new PublicKey(k));
+  const result = await connection.getMultipleAccountsInfo(
+    publicKeys,
+    commitment,
+  );
 
-  const unsafeRes = await connection._rpcRequest('getMultipleAccounts', args);
-  if (unsafeRes.error) {
-    throw new Error(
-      'failed to get info about account ' + unsafeRes.error.message,
-    );
-  }
-
-  if (unsafeRes.result.value) {
-    const array = unsafeRes.result.value as AccountInfo<string[]>[];
+  if (result) {
+    const array = result as (AccountInfo<Buffer> | null)[];
     return { keys, array };
   }
 

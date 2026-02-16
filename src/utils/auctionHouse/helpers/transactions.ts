@@ -25,7 +25,7 @@ export async function sendTransactionWithRetryWithKeypair(
   const transaction = new Transaction();
   instructions.forEach(instruction => transaction.add(instruction));
   transaction.recentBlockhash = (
-    block || (await connection.getRecentBlockhash(commitment))
+    block || (await connection.getLatestBlockhash(commitment))
   ).blockhash;
 
   if (includesFeePayer) {
@@ -156,25 +156,10 @@ async function simulateTransaction(
   transaction: Transaction,
   commitment: Commitment,
 ): Promise<RpcResponseAndContext<SimulatedTransactionResponse>> {
-  // @ts-ignore
-  transaction.recentBlockhash = await connection._recentBlockhash(
-    // @ts-ignore
-    connection._disableBlockhashCaching,
-  );
+  const { blockhash } = await connection.getLatestBlockhash(commitment);
+  transaction.recentBlockhash = blockhash;
 
-  const signData = transaction.serializeMessage();
-  // @ts-ignore
-  const wireTransaction = transaction._serialize(signData);
-  const encodedTransaction = wireTransaction.toString('base64');
-  const config: any = { encoding: 'base64', commitment };
-  const args = [encodedTransaction, config];
-
-  // @ts-ignore
-  const res = await connection._rpcRequest('simulateTransaction', args);
-  if (res.error) {
-    throw new Error('failed to simulate transaction: ' + res.error.message);
-  }
-  return res.result;
+  return connection.simulateTransaction(transaction, undefined, undefined);
 }
 
 async function awaitTransactionSignatureConfirmation(
@@ -258,9 +243,7 @@ async function awaitTransactionSignatureConfirmation(
     }
   });
 
-  //@ts-ignore
-  if (connection._signatureSubscriptions[subId])
-    connection.removeSignatureListener(subId);
+  connection.removeSignatureListener(subId).catch(() => {});
   done = true;
   console.log('Returning status', status);
   return status;

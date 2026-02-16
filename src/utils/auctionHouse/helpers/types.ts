@@ -1,9 +1,9 @@
-import {Blockhash, FeeCalculator, Transaction, TransactionInstruction} from "@solana/web3.js";
+import {Blockhash, Transaction, TransactionInstruction} from "@solana/web3.js";
 import { BN } from '@coral-xyz/anchor';
 
 export interface BlockhashAndFeeCalculator {
   blockhash: Blockhash;
-  feeCalculator: FeeCalculator;
+  lastValidBlockHeight: number;
 }
 
 export interface Txn {

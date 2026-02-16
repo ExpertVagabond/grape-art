@@ -73,7 +73,7 @@ export async function signTransaction({
   connection: Connection
 }) {
   transaction.recentBlockhash = (
-    await connection.getRecentBlockhash('max')
+    await connection.getLatestBlockhash('max')
   ).blockhash
   transaction.setSigners(wallet.publicKey, ...signers.map((s) => s.publicKey))
   if (signers.length > 0) {
@@ -94,7 +94,7 @@ export async function signTransactions({
   wallet: Wallet
   connection: Connection
 }) {
-  const blockhash = (await connection.getRecentBlockhash('max')).blockhash
+  const blockhash = (await connection.getLatestBlockhash('max')).blockhash
   transactionsAndSigners.forEach(({ transaction, signers = [] }) => {
     transaction.recentBlockhash = blockhash
     transaction.setSigners(wallet.publicKey, ...signers.map((s) => s.publicKey))
@@ -303,30 +303,10 @@ export async function simulateTransaction(
   transaction: Transaction,
   commitment: Commitment
 ): Promise<RpcResponseAndContext<SimulatedTransactionResponse>> {
-  // @ts-ignore
-  transaction.recentBlockhash = await connection._recentBlockhash(
-    // @ts-ignore
-    connection._disableBlockhashCaching
-  )
+  const { blockhash } = await connection.getLatestBlockhash(commitment)
+  transaction.recentBlockhash = blockhash
 
   console.log('simulating transaction', transaction)
 
-  const signData = transaction.serializeMessage()
-  // @ts-ignore
-  const wireTransaction = transaction._serialize(signData)
-  const encodedTransaction = wireTransaction.toString('base64')
-
-  console.log('encoding')
-  const config: any = { encoding: 'base64', commitment }
-  const args = [encodedTransaction, config]
-  console.log('simulating data', args)
-
-  // @ts-ignore
-  const res = await connection._rpcRequest('simulateTransaction', args)
-
-  console.log('res simulating transaction', res)
-  if (res.error) {
-    throw new Error('failed to simulate transaction: ' + res.error.message)
-  }
-  return res.result
+  return connection.simulateTransaction(transaction, undefined, undefined)
 }

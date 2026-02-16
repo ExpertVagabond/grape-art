@@ -1,7 +1,6 @@
 import {
   Commitment,
   Connection,
-  FeeCalculator,
   RpcResponseAndContext,
   SignatureStatus,
   SimulatedTransactionResponse,
@@ -120,14 +119,10 @@ async function awaitTransactionSignatureConfirmation(
         status.err = { timeout: true }
       }
 
-      //@ts-ignore
-      if (connection._signatureSubscriptions[subId])
-        connection.removeSignatureListener(subId)
+      connection.removeSignatureListener(subId).catch(() => {})
     })
     .then((_) => {
-      //@ts-ignore
-      if (connection._signatureSubscriptions[subId])
-        connection.removeSignatureListener(subId)
+      connection.removeSignatureListener(subId).catch(() => {})
     })
   done = true
   return status
@@ -139,25 +134,10 @@ export async function simulateTransaction(
   transaction: Transaction,
   commitment: Commitment
 ): Promise<RpcResponseAndContext<SimulatedTransactionResponse>> {
-  // @ts-ignore
-  transaction.recentBlockhash = await connection._recentBlockhash(
-    // @ts-ignore
-    connection._disableBlockhashCaching
-  )
+  const { blockhash } = await connection.getLatestBlockhash(commitment)
+  transaction.recentBlockhash = blockhash
 
-  const signData = transaction.serializeMessage()
-  // @ts-ignore
-  const wireTransaction = transaction._serialize(signData)
-  const encodedTransaction = wireTransaction.toString('base64')
-  const config: any = { encoding: 'base64', commitment }
-  const args = [encodedTransaction, config]
-
-  // @ts-ignore
-  const res = await connection._rpcRequest('simulateTransaction', args)
-  if (res.error) {
-    throw new Error('failed to simulate transaction: ' + res.error.message)
-  }
-  return res.result
+  return connection.simulateTransaction(transaction, undefined, undefined)
 }
 ///////////////////////////////////////
 export const getUnixTs = () => {
@@ -265,14 +245,14 @@ export const sendTransactions = async (
     false,
   block?: {
     blockhash: string
-    feeCalculator: FeeCalculator
+    lastValidBlockHeight: number
   }
 ): Promise<number> => {
   if (!wallet.publicKey) throw new Error('Wallet not connected!')
   const unsignedTxns: Transaction[] = []
 
   if (!block) {
-    block = await connection.getRecentBlockhash(commitment)
+    block = await connection.getLatestBlockhash(commitment)
   }
 
   for (let i = 0; i < instructionSet.length; i++) {
