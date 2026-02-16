@@ -14,7 +14,6 @@ import {ENV, TokenInfo, TokenListProvider} from '@solana/spl-token-registry';
 import { AnchorWallet, useAnchorWallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletError } from '@solana/wallet-adapter-base';
 import { useTranslation } from 'react-i18next';
-import { ShdwDrive } from "@shadow-drive/sdk";
 import { useSnackbar } from 'notistack';
 
 import file_size_url from 'file_size_url';

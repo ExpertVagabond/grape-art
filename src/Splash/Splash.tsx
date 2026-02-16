@@ -16,7 +16,6 @@ import {
   } from "@bonfida/spl-name-service";
 
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-//import { getProfilePicture } from '@solflare-wallet/pfp';
 
 import { TokenAmount, lt } from '../utils/grapeTools/safe-math';
 import { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js';

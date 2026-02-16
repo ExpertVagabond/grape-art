@@ -1,5 +1,4 @@
 import { ClassNamesContent } from '@emotion/react';
-import { defaultVariables, IncomingThemeVariables } from '@dialectlabs/react-ui';
 import theme from './config/theme';
 
 export const GRAPE_BOTTOM_CHAT_ID = 'grape-bottom-chat';

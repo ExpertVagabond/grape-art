@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
-import CyberConnect from '@cyberlab/cyberconnect';
 
 interface Web3ContextInterface {
   connectWallet: () => Promise<void>;

@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
 
-import CyberConnect, { Env, Blockchain, solana } from '@cyberlab/cyberconnect';
 import { FollowListInfoResp, SearchUserInfoResp, Network } from '../utils/cyberConnect/types';
 import { removeDuplicate } from '../utils/cyberConnect/helper';
 import { followListInfoQuery } from '../utils/cyberConnect/query';
 
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { getProfilePicture } from '@solflare-wallet/pfp';
 
 import { Connection, PublicKey} from '@solana/web3.js';
 

@@ -9,11 +9,7 @@ import {
     useTokenBonding,
     useTokenBondingKey,
     useTokenMetadata,
-  } from "@strata-foundation/react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import { SplTokenBonding } from "@strata-foundation/spl-token-bonding";
-import { SplTokenCollective } from "@strata-foundation/spl-token-collective";
-import { getAssociatedAccountBalance, SplTokenMetadata } from "@strata-foundation/spl-utils";
 import { PublicKey, Connection } from '@solana/web3.js';
 import { Wallet as NodeWallet } from "@project-serum/anchor";
 import {useSnackbar} from "notistack";

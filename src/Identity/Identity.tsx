@@ -35,7 +35,6 @@ import BuyDomainView from './plugins/BuyDomain';
 import ExplorerView from '../utils/grapeTools/Explorer';
 
 import { findDisplayName } from '../utils/name-service';
-import { getProfilePicture } from '@solflare-wallet/pfp';
 import { TokenAmount } from '../utils/grapeTools/safe-math';
 import { useWallet } from '@solana/wallet-adapter-react';
 

@@ -11,7 +11,6 @@ import { Connection, PublicKey } from '@solana/web3.js';
 
 import { Button } from '@mui/material';
 
-import CyberConnect, { Env, Blockchain, ConnectionType } from '@cyberlab/cyberconnect';
 import { FollowListInfoResp, SearchUserInfoResp, Network } from '../utils/cyberConnect/types';
 import { followListInfoQuery, searchUserInfoQuery } from '../utils/cyberConnect/query';
 

@@ -1,4 +1,3 @@
-import ReactXnft, { AnchorDom, View, Text } from "react-xnft";
 import React, { FC, ReactNode, useCallback, useMemo, Suspense, lazy, Component } from 'react';
 import { styled, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -102,10 +101,6 @@ import {
     Config,
     ChatNavigationHelpers,
     Backend,
-} from '@dialectlabs/react-ui';
-import { DialectDappsIdentityResolver } from '@dialectlabs/identity-dialect-dapps';
-import { SNSIdentityResolver } from '@dialectlabs/identity-sns';
-import { CardinalTwitterIdentityResolver } from '@dialectlabs/identity-cardinal';
 
 import { getDialectVariables, GRAPE_BOTTOM_CHAT_ID } from './utils/ui-contants';
 import { ClassNames } from '@emotion/react';

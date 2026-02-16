@@ -1,7 +1,6 @@
 import { PublicKey, TokenAmount, Connection } from '@solana/web3.js';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
-//import { CardinalTwitterIdentityResolver } from '@dialectlabs/identity-cardinal';
 
 import * as React from 'react';
 import BN from 'bn.js';
@@ -63,7 +62,6 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 
 import axios from "axios";
 
-import { ChatNavigationHelpers, useDialectUiId } from '@dialectlabs/react-ui';
 import { GRAPE_BOTTOM_CHAT_ID } from '../utils/ui-contants';
 
 import PropTypes from 'prop-types';

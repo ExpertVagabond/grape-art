@@ -5,7 +5,6 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as React from 'react';
 import BN from 'bn.js';
 import { styled, useTheme } from '@mui/material/styles';
-//import { Swap } from '@strata-foundation/react'
 import {
   Typography,
   Button,
@@ -27,9 +26,6 @@ import {
 
 import { Provider, AnchorProvider } from "@project-serum/anchor";
 
-import { SplTokenBonding } from "@strata-foundation/spl-token-bonding";
-import { SplTokenCollective } from "@strata-foundation/spl-token-collective";
-import { getAssociatedAccountBalance, SplTokenMetadata, getMintInfo, getTokenAccount } from "@strata-foundation/spl-utils";
 import StrataSwap from "./StrataSwap";
 
 import BackedTokenSwap from "./BackedTokenSwap";

@@ -1,4 +1,3 @@
-import ReactXnft, { AnchorDom } from "react-xnft";
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { hydrate, render } from "react-dom";

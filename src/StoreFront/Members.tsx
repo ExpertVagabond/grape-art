@@ -9,7 +9,6 @@ import {
     tryGetName,
 } from '@cardinal/namespaces';
 
-import { CardinalTwitterIdentityResolver } from '@dialectlabs/identity-cardinal';
 import * as React from 'react';
 import BN from 'bn.js';
 import { styled, useTheme } from '@mui/material/styles';
@@ -37,7 +36,6 @@ import {
 import { formatAmount, getFormattedNumberToLocale } from '../utils/grapeTools/helpers';
 import { getBackedTokenMetadata } from '../utils/grapeTools/strataHelpers';
 import ExplorerView from '../utils/grapeTools/Explorer';
-import { getProfilePicture } from '@solflare-wallet/pfp';
 import { findDisplayName } from '../utils/name-service';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 
@@ -51,7 +49,6 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import IconButton from '@mui/material/IconButton';
 
-import { ChatNavigationHelpers, useDialectUiId } from '@dialectlabs/react-ui';
 import { GRAPE_BOTTOM_CHAT_ID } from '../utils/ui-contants';
 
 import PropTypes from 'prop-types';

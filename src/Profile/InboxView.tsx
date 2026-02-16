@@ -3,7 +3,6 @@ import {
     DialectThemeProvider,
     Inbox as DialectInbox,
     useDialectUiId,
-} from '@dialectlabs/react-ui';
 import { Box } from '@mui/material';
 import { ClassNames } from '@emotion/react';
 import { getDialectVariables, GRAPE_INBOX_ID } from '../utils/ui-contants';

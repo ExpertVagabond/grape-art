@@ -5,7 +5,6 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as React from 'react';
 import BN from 'bn.js';
 import { styled, useTheme } from '@mui/material/styles';
-//import { Swap } from '@strata-foundation/react'
 import {
   Typography,
   Button,

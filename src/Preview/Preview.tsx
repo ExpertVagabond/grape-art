@@ -1,18 +1,15 @@
 import React, { useEffect, useState, useCallback, memo } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
-import CyberConnect, { Env, Blockchain, ConnectionType } from '@cyberlab/cyberconnect';
 
 import { Connection, ParsedAccountData, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js'
 // @ts-ignore
 import ImageViewer from 'react-simple-image-viewer';
 import { Helmet } from 'react-helmet';
 
-import { ChatNavigationHelpers, useDialectUiId } from '@dialectlabs/react-ui';
 import { GRAPE_BOTTOM_CHAT_ID } from '../utils/ui-contants';
 
 import { findDisplayName } from '../utils/name-service';
-import { createSetProfilePictureTransaction } from '@solflare-wallet/pfp';
 
 import { TokenAmount } from '../utils/grapeTools/safe-math';
 import { 

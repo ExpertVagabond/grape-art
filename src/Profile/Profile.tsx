@@ -13,13 +13,11 @@ import {
     getTwitterRegistry,
 } from '@bonfida/spl-name-service';
 
-import CyberConnect, { Env, Blockchain, ConnectionType } from '@cyberlab/cyberconnect';
 import { FollowListInfoResp, SearchUserInfoResp, Network } from '../utils/cyberConnect/types';
 import { formatAddress, removeDuplicate, isValidAddr } from '../utils/cyberConnect/helper';
 import { followListInfoQuery, searchUserInfoQuery } from '../utils/cyberConnect/query';
 
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { getProfilePicture } from '@solflare-wallet/pfp';
 
 import { TokenAmount, lt } from '../utils/grapeTools/safe-math';
 import { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js';
@@ -109,7 +107,6 @@ import { IdentityView } from '../Identity/Identity';
 import { MakeLinkableAddress, ValidateAddress, trimAddress, timeAgo } from '../utils/grapeTools/WalletAddress'; // global key handling
 
 import { useTranslation } from 'react-i18next';
-import { ChatNavigationHelpers, useDialectUiId } from '@dialectlabs/react-ui';
 import { GRAPE_BOTTOM_CHAT_ID } from '../utils/ui-contants';
 import InboxView from './InboxView';
 

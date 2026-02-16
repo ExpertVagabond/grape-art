@@ -113,7 +113,6 @@ import {
     getShdwState
 } from '../utils/grapeTools/helpers';
 
-import { getProfilePicture } from '@solflare-wallet/pfp';
 import ShareSocialURL from '../utils/grapeTools/ShareUrl';
 
 import GalleryView from '../Profile/GalleryView';

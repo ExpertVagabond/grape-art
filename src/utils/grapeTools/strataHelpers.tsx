@@ -2,9 +2,6 @@ import { RPC_CONNECTION } from './constants';
 import { PublicKey, Connection } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
 
-import { SplTokenBonding } from "@strata-foundation/spl-token-bonding";
-import { SplTokenCollective } from "@strata-foundation/spl-token-collective";
-import { getAssociatedAccountBalance, SplTokenMetadata, getMintInfo, getTokenAccount } from "@strata-foundation/spl-utils";
 
 import { Provider, AnchorProvider } from "@project-serum/anchor";
 

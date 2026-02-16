@@ -10,7 +10,6 @@ import QRCode from "react-qr-code";
 import { 
     tryGetName,
 } from '@cardinal/namespaces';
-import { getProfilePicture } from '@solflare-wallet/pfp';
 import { findDisplayName } from '../name-service';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 

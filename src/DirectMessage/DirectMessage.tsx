@@ -31,7 +31,6 @@ import { trimAddress } from '../utils/grapeTools/WalletAddress'; // global key h
 import MessageIcon from '@mui/icons-material/Message';
 
 import { useTranslation } from 'react-i18next';
-import { createDialectForMembers, sendMessage } from '@dialectlabs/react';
 import { walletconnect } from 'web3modal/dist/providers/connectors';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

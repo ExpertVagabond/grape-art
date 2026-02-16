@@ -7,7 +7,6 @@ import { WalletError } from '@solana/wallet-adapter-base';
 import { BN, web3 } from '@project-serum/anchor';
 //import spok from 'spok';
 
-import { ChatNavigationHelpers, useDialectUiId } from '@dialectlabs/react-ui';
 import { GRAPE_BOTTOM_CHAT_ID } from '../utils/ui-contants';
 import moment from 'moment';
 import { useSnackbar } from 'notistack';

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import CyberConnect, { Env, Blockchain } from '@cyberlab/cyberconnect';
 import { RankingListResp, Network } from '../utils/cyberConnect/types';
 import { rankingListInfoQuery } from '../utils/cyberConnect/query';
 
