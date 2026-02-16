@@ -49,7 +49,7 @@ import {
 import { getMetadata, deserializeAccount, deserializeReceipt } from '../utils/auctionHouse/helpers/accounts';
 
 import { AuctionHouseProgram  } from '@metaplex-foundation/mpl-auction-house';
-import { dataBeet, Metadata } from '@metaplex-foundation/mpl-token-metadata';
+import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
 
 import { 
     RPC_CONNECTION,
