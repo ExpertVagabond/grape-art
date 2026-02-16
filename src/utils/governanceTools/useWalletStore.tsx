@@ -5,6 +5,8 @@ import {
   TokenProgramAccount,
   TokenAccount,
   MintAccount,
+  AccountInfo,
+  MintInfo,
   tryGetMint,
   getOwnedTokenAccounts,
   parseMintAccountData,
@@ -31,7 +33,6 @@ import { ProgramAccount } from '@solana/spl-governance';
 import { getGovernanceChatMessages } from '@solana/spl-governance';
 import { ChatMessage } from '@solana/spl-governance';
 import { GoverningTokenType } from '@solana/spl-governance';
-import { AccountInfo, MintInfo } from '@solana/spl-token';
 import tokenService from './services/token';
 import { SignerWalletAdapter } from '@solana/wallet-adapter-base';
 import { getCertifiedRealmInfo } from './models/registry/api';

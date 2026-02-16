@@ -7,13 +7,12 @@ import {
   ParsedAccountData,
 } from '@solana/web3.js'
 import {
-  AccountInfo,
   AccountLayout,
-  MintInfo,
   MintLayout,
-  Token,
-  u64,
+  createApproveInstruction as splCreateApproveInstruction,
+  createRevokeInstruction as splCreateRevokeInstruction,
 } from '@solana/spl-token'
+import BN from 'bn.js'
 import { ProgramAccount } from '@solana/spl-governance'
 import { Governance } from '@solana/spl-governance'
 import { chunks } from './helpers'
@@ -24,9 +23,51 @@ import { getParsedNftAccountsByOwner } from '@nfteyez/sol-rayz'
 import axios from 'axios'
 import { notify } from './notifications'
 import { NFTWithMint } from './uiTypes/nfts'
-import { BN } from '@coral-xyz/anchor'
 import { abbreviateAddress } from './formatting'
 */
+
+// Legacy compatibility types removed from @solana/spl-token >= 0.3.x
+// These match the old v0.1.x/v0.2.x interfaces used by governance code
+export class u64 extends BN {
+  toBuffer(): Buffer {
+    const a = super.toArray().reverse()
+    const b = Buffer.from(a)
+    if (b.length === 8) {
+      return b
+    }
+    const zeroPad = Buffer.alloc(8)
+    b.copy(zeroPad)
+    return zeroPad
+  }
+
+  static fromBuffer(buffer: Buffer | Uint8Array): u64 {
+    const reversed = Buffer.from(buffer).reverse()
+    const hex = reversed.toString('hex')
+    return new u64(hex, 16)
+  }
+}
+
+export interface MintInfo {
+  mintAuthority: PublicKey | null
+  supply: u64
+  decimals: number
+  isInitialized: boolean
+  freezeAuthority: PublicKey | null
+}
+
+export interface AccountInfo {
+  address: PublicKey
+  mint: PublicKey
+  owner: PublicKey
+  amount: u64
+  delegate: PublicKey | null
+  delegatedAmount: u64
+  isInitialized: boolean
+  isFrozen: boolean
+  isNative: boolean
+  rentExemptReserve: u64 | null
+  closeAuthority: PublicKey | null
+}
 export type TokenAccount = AccountInfo
 export type MintAccount = MintInfo
 export type GovernedTokenAccount = {
@@ -231,29 +272,25 @@ export function approveTokenTransfer(
   delegate?: PublicKey,
   existingTransferAuthority?: Keypair
 ): Keypair {
-  const tokenProgram = TOKEN_PROGRAM_ID
   const transferAuthority = existingTransferAuthority || new Keypair()
 
-  // Coerce amount to u64 in case it's deserialized as BN which differs by buffer conversion functions only
-  // Without the coercion createApproveInstruction would fail because it won't be able to serialize it
-  if (typeof amount !== 'number') {
-    amount = new u64(amount.toArray())
-  }
+  // Coerce amount to bigint for the new spl-token API
+  const amountBigInt = typeof amount === 'number'
+    ? BigInt(amount)
+    : BigInt(amount.toString())
 
   instructions.push(
-    Token.createApproveInstruction(
-      tokenProgram,
+    splCreateApproveInstruction(
       account,
       delegate ?? transferAuthority.publicKey,
       owner,
-      [],
-      amount
+      amountBigInt,
     )
   )
 
   if (autoRevoke) {
     cleanupInstructions.push(
-      Token.createRevokeInstruction(tokenProgram, account, owner, [])
+      splCreateRevokeInstruction(account, owner)
     )
   }
 

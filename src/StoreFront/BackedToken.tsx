@@ -1,6 +1,6 @@
 import { PublicKey, TokenAmount, Connection } from '@solana/web3.js';
 import { ENV, TokenListProvider, TokenInfo } from '@solana/spl-token-registry';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token-v2';
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as React from 'react';
 import BN from 'bn.js';

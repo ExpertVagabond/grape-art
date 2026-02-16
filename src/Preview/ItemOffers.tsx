@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { Connection, LAMPORTS_PER_SOL, PublicKey, Transaction, TransactionInstruction } from '@solana/web3.js';
 import * as anchor from '@coral-xyz/anchor';
-import { getAssociatedTokenAddress, getOrCreateAssociatedTokenAccount } from '@solana/spl-token-v2';
+import { getAssociatedTokenAddress, getOrCreateAssociatedTokenAccount } from '@solana/spl-token';
 // @ts-ignore
 //import fetch from 'node-fetch';
 

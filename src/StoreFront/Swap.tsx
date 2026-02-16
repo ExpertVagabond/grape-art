@@ -4,7 +4,7 @@ import JSBI from 'jsbi';
 import {WalletAdapterNetwork} from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Connection, PublicKey } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token-v2';
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import { styled } from '@mui/material/styles';
 import {
     Dialog,

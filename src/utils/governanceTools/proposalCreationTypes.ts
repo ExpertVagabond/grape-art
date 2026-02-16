@@ -1,7 +1,7 @@
 import { Governance, InstructionData } from '@solana/spl-governance'
 import { ProgramAccount } from '@solana/spl-governance'
 import { RpcContext } from '@solana/spl-governance'
-import { MintInfo } from '@solana/spl-token'
+import { MintInfo } from './tokens'
 import { PublicKey, TransactionInstruction } from '@solana/web3.js'
 import { getNameOf } from './core/script';
 import {

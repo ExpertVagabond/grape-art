@@ -1,7 +1,7 @@
 // governanceui VoteStakeRegistry/sdk/accounts.tsx
 
 import { BN } from "@coral-xyz/anchor";
-import { MintInfo } from "@solana/spl-token";
+import { MintInfo } from "../../tokens";
 import { PublicKey } from "@solana/web3.js";
 
 export interface Voter {

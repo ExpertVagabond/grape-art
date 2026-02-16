@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 // @ts-ignore
 import { PublicKey, Connection } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 
 import ExplorerView from '../../utils/grapeTools/Explorer';
 import { getBackedTokenMetadata } from '../../utils/grapeTools/strataHelpers';

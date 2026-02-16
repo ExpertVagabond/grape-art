@@ -12,7 +12,7 @@ import {
   WRAPPED_SOL_MINT
 } from "./constants";
 import {Connection, PublicKey} from "@solana/web3.js";
-import {getMint} from "@solana/spl-token-v2";
+import {getMint} from "@solana/spl-token";
 import {AnchorWallet} from "@solana/wallet-adapter-react";
 import {Metadata, METADATA_SCHEMA,METADATA_REPLACE} from "./types";
 import {deserializeUnchecked} from "borsh";

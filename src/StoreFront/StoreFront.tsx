@@ -14,7 +14,7 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import { TokenAmount, lt } from '../utils/grapeTools/safe-math';
 import { Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, getAccount, getMint } from "@solana/spl-token-v2";
+import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, getAccount, getMint } from "@solana/spl-token";
 
 import { useNavigate } from 'react-router';
 import { styled } from '@mui/material/styles';
