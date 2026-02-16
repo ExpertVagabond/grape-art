@@ -1,0 +1,46 @@
+# Grape Art Revival - Progress Tracker
+# Task ID: 9d59c394-8d5c-4d0f-b6d9-970f6838055b
+
+## GA-01: Create revival branch and audit dependency tree
+
+### Status: COMPLETE
+### Date: 2026-02-16
+### Branch: revival/graveyard-hack
+
+### What was done:
+1. Confirmed revival/graveyard-hack branch exists and is checked out
+2. Read and audited all 113 dependencies (96 dependencies + 17 devDependencies)
+3. Created DEPENDENCY_AUDIT.md with full disposition table
+4. Deleted yarn.lock (migrating to npm)
+5. Updated .gitignore with credential exclusions (.env, *.key, *.pem)
+
+### Audit Summary:
+- 25 packages marked REMOVE (dead projects: Dialect, Strata, Cardinal, CyberConnect, Shadow Drive, xNFT)
+- 33 packages marked UPGRADE (Solana core, wallet adapters, Metaplex, MUI, Parcel)
+- 36 packages marked KEEP (React, utilities, polyfills)
+- 2 packages marked REPLACE (@project-serum/anchor -> @coral-xyz/anchor, react-query -> @tanstack/react-query)
+- 17 packages marked EVALUATE (need further investigation)
+
+### Key Dead Dependencies Found:
+- @dialectlabs/* (5 packages) - Dialect deprecated
+- @strata-foundation/* (3 packages) - Strata Protocol shut down
+- @cardinal/* (2 packages) - Cardinal Labs shut down
+- @cyberlab/cyberconnect - CyberConnect pivoted
+- @shadow-drive/sdk - GenesysGo deprecated
+- @certusone/wormhole-sdk - Rebranded to @wormhole-foundation
+- react-xnft / @coral-xyz/xnft-cli - Backpack xNFT deprecated
+- @solflare-wallet/pfp - Dead integration
+
+### Original State:
+- package.json version: 1.1.419
+- Package manager: yarn (migrating to npm)
+- Bundler: Parcel 2.8.0
+- React: 18.2.0
+- Solana web3.js: ^1.91.6
+- Total dependencies: 113
+
+### Next Steps (GA-02):
+- Remove all REMOVE-disposition packages from package.json
+- Execute the REPLACE dispositions
+- Run npm install to verify clean install
+- Stub out removed functionality

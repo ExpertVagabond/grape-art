@@ -94,3 +94,8 @@ dist-server/
 
 # React build output
 build
+# Credentials and secrets
+*.key
+*.pem
+*.p12
+credentials.json
