@@ -12,13 +12,17 @@
 - Updated Metaplex SDK to **v3+**, wallet-adapter to latest
 - Removed **9 dead integrations** (CyberConnect, Shadow Drive, Strata, Streamflow, Dialect, etc.)
 - Updated `@solana/spl-token` to modern version
-- TypeScript compilation fixes in progress
+- **400+ TypeScript files compile with zero errors**
+- Production build via **Parcel 2.16.4** (98 files, 17MB dist)
+- **746-line marketplace demo** validating 19 auction house operations
+- **11 migration stories completed** (see MIGRATION.md)
 
 ### Quick Start
 
 ```bash
 npm install
-npm start     # Parcel dev server
+npm run build   # Parcel production build
+npm start       # Parcel dev server with HMR
 ```
 
 ---
