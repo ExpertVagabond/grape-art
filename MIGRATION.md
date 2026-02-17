@@ -25,7 +25,7 @@ and core marketplace flows functional.
 | GA-06 | Update wallet-adapter packages | Done | `5d4cc03` |
 | GA-07 | Update Metaplex packages | Done | `fc69d26` |
 | GA-08 | Fix remaining deprecated dependencies | Done | `1dcf481` |
-| GA-09 | TypeScript compilation fixes (stubs + type casts) | In Progress | -- |
+| GA-09 | TypeScript compilation fixes (stubs + type casts) | Done | `860d45a` |
 | GA-10 | Parcel build and bundle optimization | Planned | -- |
 | GA-11 | Marketplace flows: list, buy, offer | Planned | -- |
 
