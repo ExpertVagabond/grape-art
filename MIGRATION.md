@@ -27,7 +27,7 @@ and core marketplace flows functional.
 | GA-08 | Fix remaining deprecated dependencies | Done | `1dcf481` |
 | GA-09 | TypeScript compilation fixes (stubs + type casts) | Done | `860d45a` |
 | GA-10 | Parcel build and bundle optimization | Done | `83895ec` |
-| GA-11 | Marketplace flows: list, buy, offer | Planned | -- |
+| GA-11 | Marketplace flows: list, buy, offer | Done | `faca47d` |
 
 ## What Changed
 
