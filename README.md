@@ -1,49 +1,54 @@
-# Grape Art | Getting Started 
+# Grape Art — Revived
 
-- This is the Grape Art Dex | A Social. Stateless. Marketplace. powered by Solana!
+> **Solana Graveyard Hackathon Revival** | Track: Art ($5K)
+>
+> This fork brings the abandoned Grape Art NFT marketplace back to life on modern Solana tooling.
+> See [MIGRATION.md](./MIGRATION.md) for the full technical migration guide.
 
-Primitive references:
-- Metaplex Auction House (https://github.com/metaplex-foundation/metaplex)
-- Realms/SPL Governance (https://github.com/solana-labs/oyster/)
-- Dialect Labs (https://github.com/dialectlabs)
-- Cyberconnect (https://github.com/cyberconnecthq)
-- GenesysGo Shadow Drive (https://github.com/GenesysGo/shadow-drive)
-- Bonfida (https://github.com/Bonfida)
-- Holaplex (https://github.com/holaplex/indexer)
-- Cardinal (https://github.com/cardinal-labs)
-- Solflare (https://github.com/solflare-wallet)
-- Jupiter Aggregator (https://www.npmjs.com/package/@jup-ag/react-hook)
-- Streamflow (https://github.com/streamflow-finance)
-- Crossmint (https://www.npmjs.com/package/@crossmint/client-sdk-react-ui)
+### What's New
 
-Wallet Adapter:
-- Solana Wallet Adapter (https://github.com/solana-labs/wallet-adapter)
+- Replaced `@project-serum/anchor` with `@coral-xyz/anchor` (0.30+)
+- Updated `@solana/web3.js` from 1.34 to **1.95+**
+- Updated Metaplex SDK to **v3+**, wallet-adapter to latest
+- Removed **9 dead integrations** (CyberConnect, Shadow Drive, Strata, Streamflow, Dialect, etc.)
+- Updated `@solana/spl-token` to modern version
+- TypeScript compilation fixes in progress
 
-UI:
-- Interface: MUI 5 https://mui.com
+### Quick Start
 
-BUILD/START:
-- `yarn`
-- `yarn start`
+```bash
+npm install
+npm start     # Parcel dev server
+```
 
-CONSTANTS: 
--   * connection endpoints can be edited directly in the `utils/grapeTools/constants.tsx` or with a .env file
--   * Default AH is set with 0% fees | list on Grape and share marketplace fees with a custom auction house setup on grape.art
--   * Board your collection have it featured on grape.art at https://grape.art/boarding
+---
 
-GET LISTED IN THE MARKETPLACE:
--   Want to include your collection in the Markerplace? Reach out to the DAO building Grape Art at https://discord.gg/greatape #grape-art channel
+*Original README below:*
 
-TRY IT OUT NOW:
-- https://grape.art
+## Grape Art | Social. Stateless. Marketplace.
+
+A full-featured NFT marketplace powered by Solana with Metaplex Auction House integration.
+
+**Core Technologies:**
+- Metaplex Auction House
+- Solana Wallet Adapter
+- MUI 5
+
+**Build:**
+```bash
+npm install
+npm start
+```
+
+**Screenshots:**
 
 Profile:
-<img width="1646" alt="Screen Shot 2022-07-31 at 12 03 40 AM" src="https://user-images.githubusercontent.com/13381905/181996101-e4fc0d24-ad97-4586-899b-623dbf59a9d0.png">
+<img width="1646" alt="Profile" src="https://user-images.githubusercontent.com/13381905/181996101-e4fc0d24-ad97-4586-899b-623dbf59a9d0.png">
 
 Community Discovery:
-<img width="1167" alt="Screen Shot 2022-07-30 at 11 59 35 PM" src="https://user-images.githubusercontent.com/13381905/181996003-bfbecba1-ae37-49e4-974a-9c19c869f48d.png">
+<img width="1167" alt="Discovery" src="https://user-images.githubusercontent.com/13381905/181996003-bfbecba1-ae37-49e4-974a-9c19c869f48d.png">
 
 Marketplace:
-<img width="1204" alt="Screen Shot 2022-07-31 at 12 01 07 AM" src="https://user-images.githubusercontent.com/13381905/181996036-e4e3a193-8e9d-4a66-ada1-a0719a5779e7.png">
+<img width="1204" alt="Marketplace" src="https://user-images.githubusercontent.com/13381905/181996036-e4e3a193-8e9d-4a66-ada1-a0719a5779e7.png">
 
 
