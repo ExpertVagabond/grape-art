@@ -26,7 +26,7 @@ and core marketplace flows functional.
 | GA-07 | Update Metaplex packages | Done | `fc69d26` |
 | GA-08 | Fix remaining deprecated dependencies | Done | `1dcf481` |
 | GA-09 | TypeScript compilation fixes (stubs + type casts) | Done | `860d45a` |
-| GA-10 | Parcel build and bundle optimization | Planned | -- |
+| GA-10 | Parcel build and bundle optimization | Done | `83895ec` |
 | GA-11 | Marketplace flows: list, buy, offer | Planned | -- |
 
 ## What Changed
@@ -59,7 +59,16 @@ These services/protocols no longer exist and were completely removed:
 | `@metaplex-foundation/js` | Updated | Collection/candy machine utils |
 | `@solana/web3.js` 1.34 | `@solana/web3.js` 1.95+ | Global |
 
-### TypeScript Fixes (GA-09, in progress)
+### Build System (GA-10)
+
+Upgraded Parcel from 2.8.0 to **2.16.4** with all `@parcel/*` plugins. Key fixes:
+
+1. **Package exports resolution**: Added 50+ alias entries in `package.json` for packages using the `exports` field (`@reown/appkit/*`, `@ledgerhq/devices/*`, etc.)
+2. **@mercurial-finance/optimist shim**: Dead package importing deprecated `u64`/`Token` from spl-token v0.1.x — replaced with `src/shims/mercurial-optimist-shim.js` implementing `u64` as BN subclass and `Token` static methods via modern spl-token
+3. **@project-serum/anchor postinstall patch**: Injects missing `Wallet` export into browser builds for @cardinal/common compatibility
+4. **Production build**: 98 files, 17MB `dist/`, 15MB main JS bundle
+
+### TypeScript Fixes (GA-09)
 
 The codebase has ~400 TypeScript source files. After updating all packages, type
 incompatibilities surfaced in several categories:
@@ -140,12 +149,13 @@ REACT_APP_GRAPE_ART_PROGRAM_ID=<auction house program ID>
 | Component | Before (2022) | After (2026) |
 |-----------|--------------|--------------|
 | `npm install` | Fails (200+ dep conflicts) | Installs cleanly |
-| TypeScript build | 400+ type errors | Compiling (in progress) |
+| TypeScript build | 400+ type errors | Zero errors, compiles cleanly |
 | Social features | 9 dead integrations | Removed (clean codebase) |
 | Anchor SDK | @project-serum/anchor 0.22 | @coral-xyz/anchor 0.30+ |
 | Wallet adapter | v0.15 (broken) | Latest (v1.x) |
 | Metaplex SDK | v1 (deprecated) | v3+ |
 | Auction house | Functional but unbuildable | Type-fixed, building |
+| Production build | Parcel 2.8.0, broken | Parcel 2.16.4, 98-file dist (17MB) |
 | Solana web3.js | 1.34 | 1.95+ |
 
 ## References
