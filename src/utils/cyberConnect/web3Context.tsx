@@ -16,7 +16,7 @@ export const Web3Context = React.createContext<Web3ContextInterface>({
   cyberConnect: null,
 });
 
-export const Web3ContextProvider: React.FC = ({ children }) => {
+export const Web3ContextProvider: React.FC<{children?: React.ReactNode}> = ({ children }) => {
   const [address, setAddress] = useState<string>('');
   const [ens, setEns] = useState<string | null>('');
   const [cyberConnect, setCyberConnect] = useState<CyberConnect | null>(null);

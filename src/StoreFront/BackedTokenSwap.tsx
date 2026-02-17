@@ -4,11 +4,9 @@ import { Provider, AnchorProvider } from "@coral-xyz/anchor";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { BN } from "bn.js";
 
-import {
-    Swap,
-    useTokenBonding,
-    useTokenBondingKey,
-    useTokenMetadata,
+// Strata Protocol SDK removed (deprecated/dead project)
+// Swap, useTokenBonding, useTokenBondingKey, useTokenMetadata were from @strata-foundation/react
+
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { PublicKey, Connection } from '@solana/web3.js';
 import { Wallet as NodeWallet } from "@coral-xyz/anchor";

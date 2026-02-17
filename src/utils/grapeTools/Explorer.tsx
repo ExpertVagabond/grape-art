@@ -220,7 +220,7 @@ export default function ExplorerView(props:any){
 
                 if (tokendata){
                     //console.log("tokendata: "+JSON.stringify(tokendata));
-                    const buf = Buffer.from(tokendata.value.data, 'base64');
+                    const buf = Buffer.from(tokendata.value.data as any, 'base64');
                     const meta_final = decodeMetadata(buf);
                     
                     if (meta_final?.data?.name){

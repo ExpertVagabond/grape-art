@@ -133,7 +133,7 @@ const useWalletStore = create<WalletStore>((set, get) => ({
   selectedProposal: INITIAL_PROPOSAL_STATE,
   providerUrl: undefined,
   tokenAccounts: [],
-  set: (fn) => set(produce(fn)),
+  set: (fn) => set((produce as any)(fn)),
   actions: {
     async fetchRealmBySymbol(cluster: string, symbol: string) {
       const actions = get().actions
@@ -429,8 +429,8 @@ const useWalletStore = create<WalletStore>((set, get) => ({
       const tokenType = realm.account.communityMint.equals(
         proposal.account.governingTokenMint
       )
-        ? GoverningTokenType.Community
-        : GoverningTokenType.Council
+        ? (GoverningTokenType as any).Community
+        : (GoverningTokenType as any).Council
 
       console.log('fetchProposal fetched', {
         governance,

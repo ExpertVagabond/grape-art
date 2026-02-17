@@ -49,7 +49,7 @@ export async function gah_acceptOffer(offerAmount: number, mint: string, sellerP
   const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
   const mintKey = new web3.PublicKey(mint);
   const anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-  const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+  const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
   const buyerAddress = new web3.PublicKey(buyerPublicKey);
   const sellerAddress = new web3.PublicKey(sellerPublicKey);
 

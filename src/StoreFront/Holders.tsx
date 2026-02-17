@@ -525,9 +525,9 @@ export function HoldersView(props: any) {
             //const provider = new Connection(new web3.providers.HttpProvider("https://api.devnet.solana.com"));
             const collection = await connection.getParsedResponse("get_collection", { address: collectionAddress });
             const owners = [];
-            for (const token of collection.data.tokens) {
+            for (const token of (collection as any).data.tokens) {
               const owner = await connection.getParsedAccountInfo(token.owner); //.getAccountInfo(token.owner);
-              owners.push(owner.address);
+              owners.push((owner as any).address);
             }
             return owners;
         }

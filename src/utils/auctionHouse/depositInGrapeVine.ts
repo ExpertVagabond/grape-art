@@ -24,7 +24,7 @@ export async function depositInGrapeVine(escrowAmount: number, buyerWalletKey: P
     const auctionHouseKey = new web3.PublicKey(AUCTION_HOUSE_ADDRESS);  
 
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
 
     const amountAdjusted = await getPriceWithMantissa(
         escrowAmount,

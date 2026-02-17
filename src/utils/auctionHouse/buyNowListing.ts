@@ -28,7 +28,7 @@ export async function buyNowListing(offerAmount: number, mint: string, walletPub
   const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
   const mintKey = new web3.PublicKey(mint);
   let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-  const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+  const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
   const sellerWalletKey = new web3.PublicKey(walletPublicKey);
 
   const buyPriceAdjusted = new BN(

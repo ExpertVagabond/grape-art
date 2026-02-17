@@ -384,7 +384,7 @@ function GetParticipants(props: any){
             //    new PublicKey(governance.account.config.communityMint?.toBase58())
             //);
 
-            const governingMintPromise = 
+            const governingMintPromise: any = 
                 await connection.getParsedAccountInfo(
                     new PublicKey(thisitem.account.governingTokenMint)
                 );
@@ -525,7 +525,7 @@ function GetParticipants(props: any){
             proposalPk: new PublicKey(thisitem.pubkey),
         });
 
-        const voteResults = voteRecord;//JSON.parse(JSON.stringify(voteRecord));
+        const voteResults: any = voteRecord;//JSON.parse(JSON.stringify(voteRecord));
         
         const votingResults = [];
         let csvFile = '';

@@ -78,7 +78,7 @@ export const TxGrid: FC<Props> = ({ ms, open, setNotification, availableAction }
     const [transactions, setTransactions] = useState(null);
     const wallet = useWallet();
     const { connection } = useConnection();
-    const { getTransactions } = useSquads(connection, wallet);
+    const { getTransactions } = useSquads(connection, wallet, wallet.publicKey!);
 
     // todo: on load each txgrid fetches it's own initial state
     const handlePageChange = async (pageNumber: number) => {

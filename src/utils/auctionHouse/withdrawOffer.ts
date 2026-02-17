@@ -24,7 +24,7 @@ export async function withdrawOffer(offerAmount: number, mint: string, buyerWall
     const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);  
 
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
     //const buyerWalletKey = new web3.PublicKey(walletPublicKey);
 
     const amountAdjusted = await getPriceWithMantissa(

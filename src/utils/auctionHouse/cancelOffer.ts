@@ -25,7 +25,7 @@ export async function cancelOffer(offerAmount: number, mint: string, buyerWallet
     console.log("with AUCTION_HOUSE_ADDRESS/collectionAuctionHouse: "+AUCTION_HOUSE_ADDRESS+" / "+collectionAuctionHouse + " : "+auctionHouseKey.toBase58());
     const mintKey = new web3.PublicKey(mint);
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
     const sellerWalletKey = new web3.PublicKey(mintOwner);
 
     //console.log('offerAmount:', offerAmount);

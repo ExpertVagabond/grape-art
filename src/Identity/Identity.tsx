@@ -561,8 +561,8 @@ export function IdentityView(props: any){
                 if (tm && tm?.extensions?.coingeckoId){
                     if (cgArray.length > 0)
                         cgArray += ',';
-                    cgArray+=tm.extensions.coingeckoId
-                    item.coingeckoId = tm.extensions.coingeckoId;
+                    cgArray+=tm.extensions.coingeckoId;
+                    (item as any).coingeckoId = tm.extensions.coingeckoId;
                     //cgArray.push(tm.extensions.coingeckoId)
                 }
             }    
@@ -681,7 +681,7 @@ export function IdentityView(props: any){
                 */
                 
                 const itemValue = cgPrice ? 
-                    item?.coingeckoId ? +cgPrice[item?.coingeckoId]?.usd ? (cgPrice[item?.coingeckoId].usd * +item.account.data.parsed.info.tokenAmount.amount/Math.pow(10, +item.account.data.parsed.info.tokenAmount.decimals)).toFixed(item.account.data.parsed.info.tokenAmount.decimals) : 0 :0
+                    (item as any)?.coingeckoId ? +cgPrice[(item as any)?.coingeckoId]?.usd ? (cgPrice[(item as any)?.coingeckoId].usd * +item.account.data.parsed.info.tokenAmount.amount/Math.pow(10, +item.account.data.parsed.info.tokenAmount.decimals)).toFixed(item.account.data.parsed.info.tokenAmount.decimals) : 0 :0
                     : null;
                 
                 const itemBalance = Number(new TokenAmount(item.account.data.parsed.info.tokenAmount.amount, item.account.data.parsed.info.tokenAmount.decimals).format().replace(/[^0-9.-]+/g,""));
@@ -847,17 +847,17 @@ export function IdentityView(props: any){
                     balance:itemBalance,
                     delegate:item.account.data.parsed.info?.delegate ? new PublicKey(item.account.data.parsed.info?.delegate).toBase58() : ``,
                     delegateAmount:item.account.data.parsed.info?.delegatedAmount,
-                    //price:item.account.data.parsed.info.tokenAmount.decimals === 0 ? +(nftValue/(10 ** 9)*solanaUSDC).toFixed(2) : (cgPrice && cgPrice[item?.coingeckoId]?.usd) ? cgPrice[item?.coingeckoId]?.usd) : 0,
-                    price: cgPrice && cgPrice[item?.coingeckoId] && cgPrice[item?.coingeckoId]?.usd
-                        ? cgPrice[item?.coingeckoId]?.usd
+                    //price:item.account.data.parsed.info.tokenAmount.decimals === 0 ? +(nftValue/(10 ** 9)*solanaUSDC).toFixed(2) : (cgPrice && cgPrice[(item as any)?.coingeckoId]?.usd) ? cgPrice[(item as any)?.coingeckoId]?.usd) : 0,
+                    price: cgPrice && cgPrice[(item as any)?.coingeckoId] && cgPrice[(item as any)?.coingeckoId]?.usd
+                        ? cgPrice[(item as any)?.coingeckoId]?.usd
                         : item.account.data.parsed.info.tokenAmount.decimals === 0
                             ? +(nftValue / (10 ** 9) * solanaUSDC).toFixed(2)
                             : 0,
-                    //change:item.account.data.parsed.info.tokenAmount.decimals === 0 ? 0 : (cgPrice && cgPrice[item?.coingeckoId]?.usd_24h_change) ? cgPrice[item?.coingeckoId]?.usd_24h_change : 0,
+                    //change:item.account.data.parsed.info.tokenAmount.decimals === 0 ? 0 : (cgPrice && cgPrice[(item as any)?.coingeckoId]?.usd_24h_change) ? cgPrice[(item as any)?.coingeckoId]?.usd_24h_change : 0,
                     change: item.account.data.parsed.info.tokenAmount.decimals === 0
                         ? 0
-                        : (cgPrice && cgPrice[item?.coingeckoId]?.usd_24h_change)
-                            ? cgPrice[item?.coingeckoId]?.usd_24h_change
+                        : (cgPrice && cgPrice[(item as any)?.coingeckoId]?.usd_24h_change)
+                            ? cgPrice[(item as any)?.coingeckoId]?.usd_24h_change
                             : 0,
                     value: item.account.data.parsed.info.tokenAmount.decimals === 0 ?  +(nftValue/(10 ** 9)*solanaUSDC).toFixed(2) : +itemValue,
                     send:{
@@ -1276,13 +1276,13 @@ export function IdentityView(props: any){
 
                             //collectionitem.meta.data.symbol = item.metadataJson.symbol;
                             collectionitem.helloMoonCollectionId = item.helloMoonCollectionId;
-                            if (!collectionitem.image){
+                            if (!(collectionitem as any).image){
                                 if (loadNftMeta){
-                                    collectionitem.urimeta = await window.fetch(item.metadataJson.uri)
+                                    (collectionitem as any).urimeta = await window.fetch(item.metadataJson.uri)
                                     .then((res: any) => res.json())
                                     .catch((error) => console.error("Error fetching data:", error));
-                                    if (collectionitem?.urimeta)
-                                        collectionitem.image = DRIVE_PROXY+collectionitem.urimeta.image;
+                                    if ((collectionitem as any)?.urimeta)
+                                        (collectionitem as any).image = DRIVE_PROXY+(collectionitem as any).urimeta.image;
                                 }
                             }
 
@@ -1336,8 +1336,8 @@ export function IdentityView(props: any){
                                                 return x;})
                                             .catch(console.error);
                     
-                                        if (results?.data){
-                                            for (let resitem of results.data){
+                                        if ((results as any)?.data){
+                                            for (let resitem of (results as any).data){
                                                 //console.log("FLR price for: "+resitem.floorPriceLamports)
                                                 collectionitem.floorPrice = +resitem.floorPriceLamports;
                                                 totalFloor+= +resitem.floorPriceLamports;
@@ -1399,7 +1399,7 @@ export function IdentityView(props: any){
                                         let found_from_map = false;
                                         for (const [key, value] of Object.entries(nftMap)){
                                             if (key === collectionmeta[i]['meta'].mint){
-                                                collectionmeta[i]['image'] = DRIVE_PROXY+value?.image;
+                                                collectionmeta[i]['image'] = DRIVE_PROXY+(value as any)?.image;
                                                 found_from_map = true;
                                                 //console.log("image: "+ value?.image);
                                             }

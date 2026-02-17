@@ -28,7 +28,7 @@ export async function acceptOffer(offerAmount: number, mint: string, sellerWalle
   const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
   const mintKey = new web3.PublicKey(mint);
   let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-  const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+  const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
   const buyPriceAdjusted = new BN(
     await getPriceWithMantissa(
       offerAmount,

@@ -16,19 +16,20 @@
       "forceConsistentCasingInFileNames": true,
       "noFallthroughCasesInSwitch": true,
       "module": "esnext",
-      "moduleResolution": "node",
+      "moduleResolution": "bundler",
       "downlevelIteration": true,
       "resolveJsonModule": true,
       "noEmit": true,
       "noImplicitAny": false,
       "typeRoots": [
-        "./types"
+        "./types",
+        "./node_modules/@types"
       ],
       "jsx": "react-jsx",
       "isolatedModules": true
     },
     "include": [
-      "src"
+      "src",
+      "types"
     ]
   }
-  

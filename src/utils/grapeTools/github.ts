@@ -26,7 +26,7 @@ export const gistApi = {
   },
   abortController: null,
 }
-async function fetchGistFile(gistUrl: string) {
+async function fetchGistFile(this: any, gistUrl: string) {
   const controller = new AbortController()
   if (typeof this !== 'undefined') {
     this.abortController = controller

@@ -8,7 +8,7 @@ import { TxGrid } from './TxGrid';
 
 interface Props {
     row: any;
-    wallet: Wallet;
+    wallet: any;
 }
 
 export const MsRow: React.FC<Props> = ({ row, wallet }) => {

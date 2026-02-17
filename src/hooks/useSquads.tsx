@@ -62,7 +62,7 @@ export const useSquads = (connection: Connection, wallet: WalletContextState, pu
     const [squads, setSquads] = React.useState<Squad[]>([]);
     const [loading, setLoading] = React.useState(true);
     const [fetched, setFetched] = React.useState(false);
-    const sqds = useMemo(() => new Squads({ connection: connection, wallet: wallet }), [connection, wallet]);
+    const sqds = useMemo(() => new Squads({ connection: connection, wallet: wallet as any }), [connection, wallet]);
 
     const getMultisigsByUser = async (): Promise<Squad[] | null> => {
         try {

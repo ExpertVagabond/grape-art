@@ -33,7 +33,7 @@ function convertSolVal(sol: any){
     const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
     const mintKey = new web3.PublicKey(mint);
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
     const buyerWalletKey = new web3.PublicKey(walletPublicKey);
     //check if escrow amount already exists to determine if we need to deposit amount to grapevine 
     const escrow = (await getAuctionHouseBuyerEscrow(auctionHouseKey, buyerWalletKey))[0];

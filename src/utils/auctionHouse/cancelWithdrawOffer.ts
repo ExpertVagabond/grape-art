@@ -30,7 +30,7 @@ export async function cancelWithdrawOffer(offerAmount: number, mint: string, buy
     const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
     const mintKey = new web3.PublicKey(mint);
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
     const sellerWalletKey = new web3.PublicKey(mintOwner);
 
     //check if escrow amount already exists to determine if we need to deposit amount to grapevine 

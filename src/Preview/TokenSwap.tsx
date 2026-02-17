@@ -72,7 +72,7 @@ export default function TokenSwapView(props: any) {
         let transaction = VersionedTransaction.deserialize(swapTransactionBuf)
         //console.log(transaction)
 
-        const simulate = await connection.simulateTransaction(transaction);
+        const simulate = await connection.simulateTransaction(transaction as any);
 
         if (!simulate.value.err){
 

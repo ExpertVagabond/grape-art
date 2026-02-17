@@ -41,7 +41,7 @@ export async function voteOffer(offerAmount: number, mint: string, mintOwner: st
   //const solTreasury = new PublicKey(COLLABORATION_SOL_TREASURY);
   const sellerWalletKey = new PublicKey(mintOwner);
   let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-  const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+  const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
   const buyPriceAdjusted = new BN(
     await getPriceWithMantissa(
       offerAmount,

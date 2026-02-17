@@ -90,98 +90,20 @@ import { CrossmintSolanaWalletAdapter, networkToCrossmintEnvironment } from "@cr
 import grapeTheme from './utils/config/theme';
 //import "./App.less";
 import { RPC_ENDPOINT } from './utils/grapeTools/constants';
-import {
-    BottomChat as DialectBottomChat,
-    DialectUiManagementProvider,
-    DialectContextProvider,
-    DialectThemeProvider,
-    DialectWalletAdapter,
-    useDialectUiId,
-    ThemeProvider as DThemeProvider,
-    Config,
-    ChatNavigationHelpers,
-    Backend,
+// Dialect chat SDK removed (deprecated/dead project)
 
-import { getDialectVariables, GRAPE_BOTTOM_CHAT_ID } from './utils/ui-contants';
-import { ClassNames } from '@emotion/react';
-
-const walletToDialectWallet = (wallet: WalletContextState): DialectWalletAdapter => ({
-    publicKey: wallet.publicKey,
-    connected: wallet.connected && !wallet.connecting && !wallet.disconnecting && Boolean(wallet.publicKey),
-    signMessage: wallet.signMessage,
-    signTransaction: wallet.signTransaction,
-    signAllTransactions: wallet.signAllTransactions,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    diffieHellman: wallet.wallet?.adapter?._wallet?.diffieHellman
-        ? async (pubKey) => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              //@ts-ignore
-              return wallet.wallet?.adapter?._wallet?.diffieHellman(pubKey);
-          }
-        : undefined,
-});
-
+// DialectProviders stub: Dialect chat SDK was removed, just passes children through
 function DialectProviders({ children }: { children: ReactNode }): JSX.Element {
-    const connection = new Connection(RPC_ENDPOINT);
-    const wallet = useWallet();
-    const [dialectWalletAdapter, setDialectWalletAdapter] = React.useState<DialectWalletAdapter>(() =>
-        walletToDialectWallet(wallet)
-    );
-
     React.useEffect(() => {
         inject();
-        setDialectWalletAdapter(walletToDialectWallet(wallet));
-    }, [wallet]);
+    }, []);
 
-    const dialectConfig = useMemo(
-        (): Config => ({
-            backends: [Backend.DialectCloud, Backend.Solana],
-            environment: 'production',
-            dialectCloud: {
-                tokenStore: 'local-storage',
-            },
-            solana: {
-                rpcUrl: connection.rpcEndpoint,
-            },
-            identity: {
-                resolvers: [
-                    new DialectDappsIdentityResolver(),
-                    new SNSIdentityResolver(new Connection(RPC_ENDPOINT)),
-                    new CardinalTwitterIdentityResolver(new Connection(RPC_ENDPOINT)),
-                ],
-            },
-        }),
-        [connection]
-    );
-
-    return (
-        <DialectContextProvider wallet={dialectWalletAdapter} config={dialectConfig}>
-            <DialectUiManagementProvider>{children}</DialectUiManagementProvider>
-        </DialectContextProvider>
-    );
+    return <>{children}</>;
 }
 
+// BottomChatElement stub: Dialect chat SDK was removed
 function BottomChatElement() {
-    const { navigation } = useDialectUiId<ChatNavigationHelpers>('dialect-inbox');
-
-    return (
-        <ClassNames>
-            {({ css }) => (
-                <>
-                    <Container
-                        sx={{
-                            zIndex: 'tooltip',
-                        }}
-                    >
-                        <DialectThemeProvider variables={getDialectVariables(css, 'popup')} theme="dark">
-                            <DialectBottomChat dialectId={GRAPE_BOTTOM_CHAT_ID} />
-                        </DialectThemeProvider>
-                    </Container>
-                </>
-            )}
-        </ClassNames>
-    );
+    return null;
 }
 
 function Copyright(props: any): JSX.Element {

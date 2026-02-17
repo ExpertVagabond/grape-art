@@ -158,7 +158,7 @@ export default function HistoryView(props: any){
                 //START CANCEL LISTING
                 //const transactionInstr = await cancelListing(salePrice, mint, walletPublicKey.toString(), mintOwner, updateAuthority, collectionAuctionHouse);
                 const collectionAuctionHouse = salePriceAH;
-                const transactionInstr = await gah_cancelListingReceipt(listedPrice, mint, publicKey.toString(), mintOwner, null, null, null, collectionAuctionHouse);
+                const transactionInstr = await gah_cancelListingReceipt(listedPrice, mint, publicKey.toString(), mintOwner, null, null, null, collectionAuctionHouse, 0);
                 const instructionsArray = [transactionInstr.instructions].flat();        
                 const transaction = new Transaction()
                 .add(

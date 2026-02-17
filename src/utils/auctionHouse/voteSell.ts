@@ -24,7 +24,7 @@ import { ConstructionOutlined } from '@mui/icons-material';
     const auctionHouseKey = new web3.PublicKey(AUCTION_HOUSE_ADDRESS);
     const mintKey = new web3.PublicKey(mint);
     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
     const thisWalletPublicKey = new web3.PublicKey(walletPublicKey);
     
     let sellerWalletKey = thisWalletPublicKey;

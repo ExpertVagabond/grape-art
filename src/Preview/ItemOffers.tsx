@@ -1331,7 +1331,7 @@ export function OfferPrompt(props: any) {
             //check the buyerwallet offer balance and that no other pending offer exists
             /*const auctionHouseKey = new web3.PublicKey(AUCTION_HOUSE_ADDRESS);
             let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-            const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+            const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
             const escrow = (await getAuctionHouseBuyerEscrow(auctionHouseKey, publicKey))[0];
             const balance = await getTokenAmount(anchorProgram,escrow,auctionHouseObj.treasuryMint,);
             if (balance === 0) {    
@@ -2172,7 +2172,7 @@ export default function ItemOffers(props: any) {
                     /*
                     // check here if this is actually still for sale...
                     let anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-                    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,); 
+                    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,); 
                     const treasuryMint = new PublicKey(auctionHouseObj.treasuryMint)
                     const tokenMint = new PublicKey(mint)
                     const results = await anchorProgram.provider.connection.getTokenLargestAccounts(tokenMint);    
@@ -2296,8 +2296,8 @@ export default function ItemOffers(props: any) {
         try {
             const anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
             const auctionHouseKey = new web3.PublicKey(collectionAuctionHouse || AUCTION_HOUSE_ADDRESS);
-            //const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
-            const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+            //const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+            const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
             const escrow = (await getAuctionHouseBuyerEscrow(auctionHouseKey, publicKey))[0];
             //const amount = await getTokenAmount(anchorProgram,escrow,auctionHouseObj.treasuryMint,);
 			const amount = await getTokenAmount(anchorProgram,escrow,new PublicKey('So11111111111111111111111111111111111111112'),);

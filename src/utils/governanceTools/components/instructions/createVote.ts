@@ -32,7 +32,7 @@ import { RPC_CONNECTION } from '../../../../utils/grapeTools/constants';
   const connection = RPC_CONNECTION;
   
   export const createCastVoteTransaction = async (
-    selectedRealm: Realm,
+    selectedRealm: any,
     walletPublicKey: string,
     transactionData: any,
     membersMap: any,

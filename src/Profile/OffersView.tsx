@@ -608,7 +608,7 @@ export default function OffersView(props:any){
     const getEscrowBalance = async () => {
         const anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
         const auctionHouseKey = new web3.PublicKey(AUCTION_HOUSE_ADDRESS);
-        const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
+        const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);
         
         if (!ahloading){
             setAHLoading(true);

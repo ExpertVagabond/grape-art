@@ -57,7 +57,7 @@ export async function gah_makeOffer(offerAmount: number, mint: string, walletPub
     const mintKey = new web3.PublicKey(mint);
     const ggoconnection = RPC_CONNECTION;
     const anchorProgram = await loadAuctionHouseProgram(null, ENV_AH, RPC_ENDPOINT);
-    const auctionHouseObj = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
+    const auctionHouseObj: any = await anchorProgram.account.auctionHouse.fetch(auctionHouseKey,);    
     const buyerWalletKey = new web3.PublicKey(walletPublicKey);
     
     //check if escrow amount already exists to determine if we need to deposit amount to grapevine 
