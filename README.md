@@ -1,49 +1,36 @@
-# Grape Art | Getting Started 
+# grape-art
 
-- This is the Grape Art Dex | A Social. Stateless. Marketplace. powered by Solana!
+**NFT marketplace frontend for the Grape ecosystem on Solana. Browse, buy, and list NFTs with Metaplex metadata integration.**
 
-Primitive references:
-- Metaplex Auction House (https://github.com/metaplex-foundation/metaplex)
-- Realms/SPL Governance (https://github.com/solana-labs/oyster/)
-- Dialect Labs (https://github.com/dialectlabs)
-- Cyberconnect (https://github.com/cyberconnecthq)
-- GenesysGo Shadow Drive (https://github.com/GenesysGo/shadow-drive)
-- Bonfida (https://github.com/Bonfida)
-- Holaplex (https://github.com/holaplex/indexer)
-- Cardinal (https://github.com/cardinal-labs)
-- Solflare (https://github.com/solflare-wallet)
-- Jupiter Aggregator (https://www.npmjs.com/package/@jup-ag/react-hook)
-- Streamflow (https://github.com/streamflow-finance)
-- Crossmint (https://www.npmjs.com/package/@crossmint/client-sdk-react-ui)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Solana](https://img.shields.io/badge/Solana-9945FF?logo=solana&logoColor=white)
+![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)
 
-Wallet Adapter:
-- Solana Wallet Adapter (https://github.com/solana-labs/wallet-adapter)
+Revival of the Grape Art marketplace. Originally built by Grape Labs, preserved and maintained for the Graveyard Hackathon.
 
-UI:
-- Interface: MUI 5 https://mui.com
+## Features
 
-BUILD/START:
-- `yarn`
-- `yarn start`
+- NFT browsing with collection filters
+- Metaplex metadata integration
+- Wallet-connected buy/list flows
+- Tailwind CSS responsive design
 
-CONSTANTS: 
--   * connection endpoints can be edited directly in the `utils/grapeTools/constants.tsx` or with a .env file
--   * Default AH is set with 0% fees | list on Grape and share marketplace fees with a custom auction house setup on grape.art
--   * Board your collection have it featured on grape.art at https://grape.art/boarding
+## Build
 
-GET LISTED IN THE MARKETPLACE:
--   Want to include your collection in the Markerplace? Reach out to the DAO building Grape Art at https://discord.gg/greatape #grape-art channel
+```bash
+npm install
+npm run build
+```
 
-TRY IT OUT NOW:
-- https://grape.art
+## Original
 
-Profile:
-<img width="1646" alt="Screen Shot 2022-07-31 at 12 03 40 AM" src="https://user-images.githubusercontent.com/13381905/181996101-e4fc0d24-ad97-4586-899b-623dbf59a9d0.png">
+Forked from [Grape-Labs/grape-art](https://github.com/Grape-Labs/grape-art).
 
-Community Discovery:
-<img width="1167" alt="Screen Shot 2022-07-30 at 11 59 35 PM" src="https://user-images.githubusercontent.com/13381905/181996003-bfbecba1-ae37-49e4-974a-9c19c869f48d.png">
+## License
 
-Marketplace:
-<img width="1204" alt="Screen Shot 2022-07-31 at 12 01 07 AM" src="https://user-images.githubusercontent.com/13381905/181996036-e4e3a193-8e9d-4a66-ada1-a0719a5779e7.png">
+[Apache-2.0](LICENSE)
 
+## Author
 
+Maintained by [Purple Squirrel Media](https://purplesquirrelmedia.io)
