@@ -116,15 +116,18 @@ const walletToDialectWallet = (wallet: WalletContextState): DialectWalletAdapter
     signMessage: wallet.signMessage,
     signTransaction: wallet.signTransaction,
     signAllTransactions: wallet.signAllTransactions,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    diffieHellman: wallet.wallet?.adapter?._wallet?.diffieHellman
-        ? async (pubKey) => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              //@ts-ignore
-              return wallet.wallet?.adapter?._wallet?.diffieHellman(pubKey);
-          }
-        : undefined,
+    diffieHellman: (() => {
+        try {
+            const adapter = wallet.wallet?.adapter as any;
+            const innerWallet = adapter?._wallet;
+            if (typeof innerWallet?.diffieHellman === 'function') {
+                return async (pubKey: any) => innerWallet.diffieHellman(pubKey);
+            }
+        } catch {
+            // Wallet does not support diffieHellman
+        }
+        return undefined;
+    })(),
 });
 
 function DialectProviders({ children }: { children: ReactNode }): JSX.Element {

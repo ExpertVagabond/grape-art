@@ -204,10 +204,37 @@ export default function SendToken(props: any) {
     */
    
     async function transferTokens(tokenMintAddress: string, to: string, amount: number) {
-        const fromWallet = publicKey;
-        const toWallet = new PublicKey(toaddress);
-        const mintPubkey = new PublicKey(tokenMintAddress);
+        // Validate wallet connection
+        if (!publicKey) {
+            enqueueSnackbar('Wallet not connected', { variant: 'error' });
+            return;
+        }
+        // Validate destination address
+        if (!toaddress || typeof toaddress !== 'string' || toaddress.trim().length === 0) {
+            enqueueSnackbar('Invalid destination address', { variant: 'error' });
+            return;
+        }
+        // Validate amount
         const amountToSend = +amounttosend;
+        if (isNaN(amountToSend) || amountToSend <= 0) {
+            enqueueSnackbar('Invalid transfer amount', { variant: 'error' });
+            return;
+        }
+        if (amountToSend > balance) {
+            enqueueSnackbar('Insufficient balance', { variant: 'error' });
+            return;
+        }
+        // Validate mint address format
+        let toWallet: PublicKey;
+        let mintPubkey: PublicKey;
+        try {
+            toWallet = new PublicKey(toaddress);
+            mintPubkey = new PublicKey(tokenMintAddress);
+        } catch (e) {
+            enqueueSnackbar('Invalid public key format', { variant: 'error' });
+            return;
+        }
+        const fromWallet = publicKey;
         console.log("amountToSend:"+amountToSend)
         const tokenAccount = new PublicKey(mintPubkey);
         
