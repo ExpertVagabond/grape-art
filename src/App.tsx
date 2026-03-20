@@ -6,6 +6,37 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { inject } from '@vercel/analytics';
 
+// ---------------------------------------------------------------------------
+// Security: Input sanitization & validation helpers
+// ---------------------------------------------------------------------------
+const MAX_SEARCH_LEN = 512;
+const MAX_ADDRESS_LEN = 64;
+const SOLANA_ADDRESS_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+
+/** Sanitize user input strings: strip control chars, enforce length. */
+export function sanitizeInput(text: string, maxLen = MAX_SEARCH_LEN): string {
+  if (typeof text !== 'string') return '';
+  return text.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, '').slice(0, maxLen).trim();
+}
+
+/** Validate a Solana public key address. */
+export function isValidSolanaAddress(addr: string): boolean {
+  if (typeof addr !== 'string') return false;
+  return addr.length <= MAX_ADDRESS_LEN && SOLANA_ADDRESS_RE.test(addr);
+}
+
+/** Sanitize URL: only allow https and specific protocols. */
+export function sanitizeUrl(url: string): string | null {
+  if (typeof url !== 'string') return null;
+  try {
+    const parsed = new URL(url);
+    if (!['https:', 'http:'].includes(parsed.protocol)) return null;
+    return parsed.href;
+  } catch {
+    return null;
+  }
+}
+
 import { MyCollectionsView } from "./MyCollections/MyCollections";
 import { ProfileView } from './Profile/Profile';
 import MarketplaceView from './Profile/MarketplaceView';
