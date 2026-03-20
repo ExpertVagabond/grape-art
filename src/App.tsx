@@ -37,6 +37,31 @@ export function sanitizeUrl(url: string): string | null {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Security: ErrorBoundary — prevent uncaught errors from leaking state
+// ---------------------------------------------------------------------------
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(): { hasError: boolean } {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error): void {
+    // Log safely — strip stack traces
+    console.error('[ErrorBoundary]', error.message?.split('\n')[0]?.slice(0, 300));
+  }
+
+  render(): ReactNode {
+    if (this.state.hasError) {
+      return <View style={{ padding: 24 }}><Text>Something went wrong. Please refresh.</Text></View>;
+    }
+    return this.props.children;
+  }
+}
+
+export { ErrorBoundary };
+
 import { MyCollectionsView } from "./MyCollections/MyCollections";
 import { ProfileView } from './Profile/Profile';
 import MarketplaceView from './Profile/MarketplaceView';
