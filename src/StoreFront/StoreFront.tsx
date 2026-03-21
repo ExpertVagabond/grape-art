@@ -596,7 +596,7 @@ export function StoreFrontView(this: any, props: any) {
               return json;
             
         } catch(e){
-            console.log("ERR: "+e)
+            console.warn("Operation failed")
             setLoadingVerifiedCollection(false);
         }
     }
@@ -710,7 +710,7 @@ export function StoreFrontView(this: any, props: any) {
               //setCollectionMintList(json);   
               return json;
             
-        } catch(e){console.log("ERR: "+e)}   
+        } catch(e){console.warn("Operation failed")}   
     }
 
 
@@ -719,7 +719,7 @@ export function StoreFrontView(this: any, props: any) {
             setLoadingPosition("Collection States");
             if (!stateLoading)
                 await getCollectionStates(address);
-        } catch(e){console.log("ERR: "+e)}
+        } catch(e){console.warn("Operation failed")}
         
     }
 
@@ -727,7 +727,7 @@ export function StoreFrontView(this: any, props: any) {
         try{
             setLoadingPosition("Escrow States");
             await getEscrowStates(address);
-        } catch(e){console.log("ERR: "+e)}
+        } catch(e){console.warn("Operation failed")}
         
     }
 
@@ -828,7 +828,7 @@ export function StoreFrontView(this: any, props: any) {
             let finalmeta = final_collection_meta;//JSON.parse(JSON.stringify(final_collection_meta));
             try{
                 finalmeta.sort((a:any, b:any) => a?.meta.data.name.toLowerCase().trim() > b?.meta.data.name.toLowerCase().trim() ? 1 : -1);   
-            }catch(e){console.log("Sort ERR: "+e)}
+            }catch(e){console.warn("Sort operation failed")}
 
             setCollectionMetaFinal(finalmeta);
         }
@@ -1332,7 +1332,7 @@ export function StoreFrontView(this: any, props: any) {
                                 if ((thisFloorPrice > +item.price)||(!thisFloorPrice))
                                     thisFloorPrice = +item.price;
                             }
-                        }catch(e){console.log("ERR: "+e);}
+                        }catch(e){console.warn("Operation failed");}
                     
                     } else{
                         try{
@@ -1358,7 +1358,7 @@ export function StoreFrontView(this: any, props: any) {
                                 if ((thisFloorPrice > +item.activeListings[0].amount  /(10 ** 9))||(!thisFloorPrice))
                                     thisFloorPrice = +item.activeListings[0].amount /(10 ** 9);
                             }
-                        }catch(e){console.log("ERR: "+e);}
+                        }catch(e){console.warn("Operation failed");}
                     }
                     
 

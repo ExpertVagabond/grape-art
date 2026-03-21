@@ -226,7 +226,7 @@ export function Header(props: any) {
               setVerifiedCollectionArray(vCA); 
               //return json;
             
-        } catch(e){console.log("ERR: "+e)}
+        } catch(e){console.warn("Failed to fetch verified collection")}
     }
 
     React.useEffect(() => { 
