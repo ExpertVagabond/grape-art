@@ -4,14 +4,42 @@ import { hydrate, render } from "react-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import i18n (needs to be bundled) 
+// import i18n (needs to be bundled)
 import './i18n';
+
+const sanitizeError = (e) => {
+  const msg = e instanceof Error ? e.message : String(e);
+  return msg.replace(/\/[^\s]+/g, '[path]').replace(/[A-Za-z0-9]{20,}/g, '[redacted]').slice(0, 200);
+};
+
+// Global error boundary for uncaught rendering errors
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error) {
+    console.error('Application error:', sanitizeError(error));
+  }
+  render() {
+    if (this.state.hasError) {
+      return React.createElement('div', { style: { padding: '2rem', textAlign: 'center' } },
+        React.createElement('h2', null, 'Something went wrong'),
+        React.createElement('p', null, 'Please refresh the page.')
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
+  hydrate(<ErrorBoundary><App /></ErrorBoundary>, rootElement);
 } else {
-  render(<App />, rootElement);
+  render(<ErrorBoundary><App /></ErrorBoundary>, rootElement);
 }
 /*
 ReactDOM.render(
